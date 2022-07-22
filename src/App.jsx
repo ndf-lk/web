@@ -16,12 +16,13 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <MantineProvider
           theme={{
-            fontFamily: "Poppins, sans-serif",
+            fontFamily: "'Gentium Book Plus', serif",
             fontWeight: 100,
-
-            headings: { fontFamily: "Poppins, sans-serif", fontWeight: 700 },
-
-            colorScheme: "dark",
+            headings: {
+              fontFamily: "Trade Gothic Next LT Pro BdCn, sans-serif",
+              fontWeight: 700,
+            },
+            colorScheme: "light",
           }}
           withGlobalStyles
           withNormalizeCSS

@@ -2,11 +2,18 @@ import { Link, useRoutes } from "react-router-dom";
 //pages
 import { HomePage } from "./pages/home";
 
+// layouts
+import { AppLayout } from "./layouts";
+
 export const ApplicationRouter = () => {
   let routes = useRoutes([
     {
       path: "/",
-      element: <HomePage />,
+      element: (
+        <AppLayout>
+          <HomePage />
+        </AppLayout>
+      ),
     },
   ]);
 
