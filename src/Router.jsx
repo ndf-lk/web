@@ -10,11 +10,7 @@ export const ApplicationRouter = () => {
   let routes = useRoutes([
     {
       path: "/",
-      element: (
-        <AppLayout>
-          <IndexPage />
-        </AppLayout>
-      ),
+      element: <IndexPage />,
     },
 
     {
