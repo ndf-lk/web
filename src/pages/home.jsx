@@ -183,7 +183,6 @@ export const HomePage = () => {
           </Center>
         </Container>
       </div>
-      <ApplicationFooter />
     </>
   );
 };

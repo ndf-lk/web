@@ -9,6 +9,7 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { Appconfig } from "../config";
+import { ApplicationFooter } from "../components/footer/Footer";
 
 export function AppLayout({ children }) {
   const theme = useMantineTheme();
@@ -50,6 +51,7 @@ export function AppLayout({ children }) {
       }
     >
       {children}
+      <ApplicationFooter />
     </AppShell>
   );
 }
