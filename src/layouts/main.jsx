@@ -8,6 +8,7 @@ import {
   Burger,
   useMantineTheme,
 } from "@mantine/core";
+import { Appconfig } from "../config";
 
 export function AppLayout({ children }) {
   const theme = useMantineTheme();
