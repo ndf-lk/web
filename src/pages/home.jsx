@@ -1,4 +1,3 @@
-import data from "../data/english.json";
 import { AppHero } from "../components/Hero/hero";
 import {
   SimpleGrid,
@@ -13,9 +12,16 @@ import {
 import { ReadMoreCard, LinksCard } from "../components/readMoreCard";
 import { HeartHandshake } from "tabler-icons-react";
 import { ApplicationFooter } from "../components/footer/Footer";
+import { useParams } from "react-router-dom";
+import { getData } from "../data/getData";
 
 export const HomePage = () => {
   const BREAKPOINT = "@media (max-width: 800px)";
+  let { lang } = useParams();
+
+  const data = getData(lang);
+  console.log(data);
+
   function AccordionLabel(details) {
     return (
       <Group noWrap>
@@ -25,6 +31,7 @@ export const HomePage = () => {
       </Group>
     );
   }
+
   return (
     <>
       <AppHero />
