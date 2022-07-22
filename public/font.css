@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "Trade Gothic Next LT Pro BdCn";
+  src: url("/fonts/b491db99790e4fce858c18892824b2a5.eot"); /* IE9*/
+  src: url("/fonts/b491db99790e4fce858c18892824b2a5.eot?#iefix")
+      format("embedded-opentype"),
+    url("/fonts/b491db99790e4fce858c18892824b2a5.woff2") format("woff2"),
+    /* chrome firefox */ url("/fonts/b491db99790e4fce858c18892824b2a5.woff")
+      format("woff"),
+    /* chrome firefox */ url("/fonts/b491db99790e4fce858c18892824b2a5.ttf")
+      format("truetype"),
+    /* chrome firefox opera Safari, Android, iOS 4.2+*/
+      url("/fonts/b491db99790e4fce858c18892824b2a5.svg#Trade Gothic Next LT Pro BdCn")
+      format("svg"); /* iOS 4.1- */
+}
