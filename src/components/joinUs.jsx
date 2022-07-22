@@ -1,13 +1,14 @@
 import { Container, Center, Title, Button, Text } from "@mantine/core";
 import { getData } from "../data/getData";
 import { HeartHandshake } from "tabler-icons-react";
+import { Appconfig } from "../config";
 
 export const JoinusSection = ({ lang }) => {
   const data = getData(lang);
   return (
     <div
       style={{
-        background: "#fff9ea",
+        background: Appconfig.lightcolor,
         padding: 20,
         marginTop: 50,
       }}

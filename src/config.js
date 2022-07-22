@@ -1,3 +1,3 @@
 export const Appconfig = {
-  lightcolor: "#fff9ea",
+  lightcolor: "#ffe7d8",
 };

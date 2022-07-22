@@ -17,6 +17,7 @@ import { getData } from "../data/getData";
 import { JoinusSection } from "../components/joinUs";
 import { LanguageContext, LanguageSwitcher } from "../context/userLangctx";
 import { useContext } from "react";
+import { Appconfig } from "../config";
 
 export const HomePage = () => {
   const BREAKPOINT = "@media (max-width: 800px)";
@@ -48,13 +49,13 @@ export const HomePage = () => {
             mb={10}
             style={{
               "text-align": "center",
-              fontSize: 57,
+              fontSize: 50,
               lineHeight: 1.1,
               margin: 0,
               padding: 0,
 
               [BREAKPOINT]: {
-                fontSize: 42,
+                fontSize: 30,
                 lineHeight: 1.2,
               },
             }}
@@ -108,7 +109,7 @@ export const HomePage = () => {
 
       <div
         style={{
-          background: "#fff9ea",
+          background: Appconfig.lightcolor,
           padding: 20,
           marginTop: 50,
           marginBottom: 50,
