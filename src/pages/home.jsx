@@ -146,7 +146,7 @@ export const HomePage = () => {
           ))}
         </Accordion>
 
-        <Text size={"xl"} mt={20} weight={700}>
+        <Text size={"xl"} mt={50} weight={700}>
           {data.commitmentPara}
         </Text>
 

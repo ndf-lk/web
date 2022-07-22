@@ -8,14 +8,14 @@ export const getLinks = (lang = "en") => {
       { link: `/${lang}/home`, label: "අප ගැන " },
       { link: `/contact/${lang}`, label: "අප අමතන්න" },
     ];
-  } else if (lang == "pt") {
+  } else if (lang == "tm") {
     return [
       { link: `/home/${lang}`, label: "முதற்பக்கம் " },
       { link: `/${lang}/news`, label: "செய்தி  " },
       { link: `/${lang}/gallery`, label: "கேலரி  " },
 
       { link: `/${lang}/home`, label: "எம்மை பற்றி  " },
-      { link: `/${lang}/contact`, label: "தொடர்புகளுக்கு    " },
+      { link: `/contact/${lang}`, label: "தொடர்புகளுக்கு    " },
     ];
   }
 
