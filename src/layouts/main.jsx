@@ -21,6 +21,7 @@ import { getLinks } from "../lib/links";
 import { ChevronDown } from "tabler-icons-react";
 import { LanguageContext } from "../context/userLangctx";
 import { JoinusSection } from "../components/joinUs";
+import { getData } from "../data/getData";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -51,6 +52,7 @@ export function AppLayout({ children }) {
   const [opened, setOpened] = useState(false);
   const { classes } = useStyles();
   const { language, setLanguage } = useContext(LanguageContext);
+  const pdata = getData(language);
 
   const links = getLinks(language);
 
@@ -130,7 +132,7 @@ export function AppLayout({ children }) {
                 }}
               >
                 <Text weight={1000} component={Link} to="/home">
-                  National Democratic Front
+                  {pdata?.SecondaryTitle}
                 </Text>
                 <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
                   <Group spacing={5}>

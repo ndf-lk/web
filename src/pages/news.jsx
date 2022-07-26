@@ -5,6 +5,7 @@ import { Container, Title, Center } from "@mantine/core";
 import { IconBookmark, IconHeart, IconShare } from "@tabler/icons";
 import { stripHtml } from "string-strip-html";
 import { useClipboard } from "@mantine/hooks";
+import { getData } from "../data/getData";
 
 import {
   Button,
@@ -62,6 +63,7 @@ export const News = () => {
   const { classes, cx, theme } = useStyles();
   const { language, setLanguage } = useContext(LanguageContext);
   const posts = usePosts(language);
+  const pdata = getData(language);
   const clipboard = useClipboard({ timeout: 500 });
 
   const BREAKPOINT = "@media (max-width: 800px)";
@@ -89,7 +91,7 @@ export const News = () => {
               },
             }}
           >
-            Press Releases
+            {pdata?.newstitle}
           </Title>
         </Center>
 

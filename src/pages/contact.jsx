@@ -15,6 +15,7 @@ import { JoinusSection } from "../components/joinUs";
 import { useParams } from "react-router-dom";
 import { LanguageContext } from "../context/userLangctx";
 import { useContext } from "react";
+import { getData } from "../data/getData";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -70,6 +71,7 @@ const useStyles = createStyles((theme) => ({
 export function ContactUs() {
   const { language, setLanguage } = useContext(LanguageContext);
   const { classes } = useStyles();
+  const pdata = getData(language);
 
   return (
     <>
@@ -80,7 +82,7 @@ export function ContactUs() {
           breakpoints={[{ maxWidth: "sm", cols: 1 }]}
         >
           <div>
-            <Title className={classes.title}>Contact us</Title>
+            <Title className={classes.title}>{pdata?.contactus}</Title>
             <Text className={classes.description} mt="sm" mb={30}>
               Leave your email and we will get back to you within 24 hours
             </Text>
