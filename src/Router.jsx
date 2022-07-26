@@ -4,6 +4,7 @@ import { HomePage } from "./pages/home";
 import { IndexPage } from "./pages/index";
 import { ContactUs } from "./pages/contact";
 import { News } from "./pages/news";
+import { Post } from "./pages/post";
 
 // layouts
 import { AppLayout } from "./layouts";
@@ -20,6 +21,15 @@ export const ApplicationRouter = () => {
       element: (
         <AppLayout>
           <ContactUs />
+        </AppLayout>
+      ),
+    },
+
+    {
+      path: "/post/:slug",
+      element: (
+        <AppLayout>
+          <Post />
         </AppLayout>
       ),
     },

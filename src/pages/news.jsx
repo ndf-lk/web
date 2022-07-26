@@ -104,8 +104,9 @@ export const News = () => {
                     <Card withBorder radius="md" mb={30}>
                       <Card.Section>
                         <Image
-                          src="https://www.worldfinance.com/wp-content/uploads/2017/12/Abenomics.jpg"
+                          src={post?.header}
                           height={120}
+                          alt={post?.title}
                         />
                       </Card.Section>
 

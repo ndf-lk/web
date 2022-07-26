@@ -1,6 +1,6 @@
 import React from "react";
 
-export function AppHero() {
+export function AppHero({ customImage }) {
   return (
     <>
       <div>
@@ -11,7 +11,6 @@ export function AppHero() {
             maxWidth: "100%",
           }}
           srcSet="/banner.jpg"
-          alt=""
         />
       </div>
     </>

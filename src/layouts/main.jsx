@@ -129,7 +129,9 @@ export function AppLayout({ children }) {
                   width: "100%",
                 }}
               >
-                <Text>Application header</Text>
+                <Text weight={1000} component={Link} to="/home">
+                  National Democratic Front
+                </Text>
                 <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
                   <Group spacing={5}>
                     {items}
