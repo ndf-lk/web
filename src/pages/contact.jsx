@@ -117,7 +117,6 @@ export function ContactUs() {
           </div>
         </SimpleGrid>
       </Container>
-      <JoinusSection />
     </>
   );
 }

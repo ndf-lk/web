@@ -3,6 +3,7 @@ import { Link, useRoutes } from "react-router-dom";
 import { HomePage } from "./pages/home";
 import { IndexPage } from "./pages/index";
 import { ContactUs } from "./pages/contact";
+import { News } from "./pages/news";
 
 // layouts
 import { AppLayout } from "./layouts";
@@ -19,6 +20,15 @@ export const ApplicationRouter = () => {
       element: (
         <AppLayout>
           <ContactUs />
+        </AppLayout>
+      ),
+    },
+
+    {
+      path: "/news",
+      element: (
+        <AppLayout>
+          <News />
         </AppLayout>
       ),
     },

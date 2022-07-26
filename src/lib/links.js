@@ -2,7 +2,7 @@ export const getLinks = (lang = "en") => {
   if (lang == "si") {
     return [
       { link: `/home`, label: "මුල් පිටුව" },
-      { link: `/${lang}/news`, label: "ප්‍රවෘත්ති " },
+      { link: `/news`, label: "ප්‍රවෘත්ති " },
       { link: `${lang}/gallery`, label: "ගැලරිය " },
 
       { link: `/${lang}/home`, label: "අප ගැන " },
@@ -11,7 +11,7 @@ export const getLinks = (lang = "en") => {
   } else if (lang == "tm") {
     return [
       { link: `/home/`, label: "முதற்பக்கம் " },
-      { link: `/${lang}/news`, label: "செய்தி  " },
+      { link: `/news`, label: "செய்தி  " },
       { link: `/${lang}/gallery`, label: "கேலரி  " },
 
       { link: `/${lang}/home`, label: "எம்மை பற்றி  " },
@@ -21,7 +21,7 @@ export const getLinks = (lang = "en") => {
 
   return [
     { link: `/home/`, label: "Home" },
-    { link: `/${lang}/news`, label: "News" },
+    { link: `/news`, label: "News" },
     { link: `/${lang}/gallery`, label: "Gallery" },
 
     { link: `/${lang}/home`, label: "About Us" },

@@ -151,8 +151,6 @@ export const HomePage = () => {
           {data.end}
         </Text>
       </Container>
-
-      <JoinusSection lang={language} />
     </>
   );
 };

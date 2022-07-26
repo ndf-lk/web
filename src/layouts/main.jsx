@@ -20,6 +20,7 @@ import { ApplicationFooter } from "../components/footer/Footer";
 import { getLinks } from "../lib/links";
 import { ChevronDown } from "tabler-icons-react";
 import { LanguageContext } from "../context/userLangctx";
+import { JoinusSection } from "../components/joinUs";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -152,9 +153,15 @@ export function AppLayout({ children }) {
           </Container>
         </Header>
       }
+      footer={
+        <>
+          <JoinusSection />
+
+          <ApplicationFooter />
+        </>
+      }
     >
       {children}
-      <ApplicationFooter />
     </AppShell>
   );
 }

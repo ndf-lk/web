@@ -89,10 +89,10 @@ export function IndexPage() {
   const { language, setLanguage } = useContext(LanguageContext);
   let navigate = useNavigate();
 
-  const setandRedir = (lang) =>{
-    setLanguage(lang)
-    navigate(`/home`)
-  }
+  const setandRedir = (lang) => {
+    setLanguage(lang);
+    navigate(`/home`);
+  };
 
   return (
     <div className={classes.index}>
@@ -117,7 +117,7 @@ export function IndexPage() {
                 </Button>
 
                 <Button
-                  onClick={() =>setandRedir("en")}
+                  onClick={() => setandRedir("en")}
                   variant="gradient"
                   gradient={{ from: "orange", to: "pink" }}
                   size="sm"
@@ -126,7 +126,7 @@ export function IndexPage() {
                 </Button>
 
                 <Button
-                  onClick={() =>setandRedir("tm")}
+                  onClick={() => setandRedir("tm")}
                   variant="gradient"
                   gradient={{ from: "orange", to: "pink" }}
                   size="sm"
