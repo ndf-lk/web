@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useContext } from "react";
 import {
   Group,
   createStyles,
@@ -8,6 +8,8 @@ import {
   Text,
   Button,
 } from "@mantine/core";
+import { LanguageContext } from "../context/userLangctx";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -84,6 +86,14 @@ const useStyles = createStyles((theme) => ({
 
 export function IndexPage() {
   const { classes } = useStyles();
+  const { language, setLanguage } = useContext(LanguageContext);
+  let navigate = useNavigate();
+
+  const setandRedir = (lang) =>{
+    setLanguage(lang)
+    navigate(`/home`)
+  }
+
   return (
     <div className={classes.index}>
       <div className={classes.root}>
@@ -98,8 +108,7 @@ export function IndexPage() {
               </Text>
               <Group mt={40}>
                 <Button
-                  component={Link}
-                  to="/home/si"
+                  onClick={() => setandRedir("si")}
                   variant="gradient"
                   gradient={{ from: "orange", to: "pink" }}
                   size="sm"
@@ -108,8 +117,7 @@ export function IndexPage() {
                 </Button>
 
                 <Button
-                  component={Link}
-                  to="/home/en"
+                  onClick={() =>setandRedir("en")}
                   variant="gradient"
                   gradient={{ from: "orange", to: "pink" }}
                   size="sm"
@@ -118,8 +126,7 @@ export function IndexPage() {
                 </Button>
 
                 <Button
-                  component={Link}
-                  to="/home/tm"
+                  onClick={() =>setandRedir("tm")}
                   variant="gradient"
                   gradient={{ from: "orange", to: "pink" }}
                   size="sm"

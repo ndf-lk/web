@@ -13,6 +13,8 @@ import {
 import { ContactIconsList } from "../components/ContactIcons";
 import { JoinusSection } from "../components/joinUs";
 import { useParams } from "react-router-dom";
+import { LanguageContext } from "../context/userLangctx";
+import { useContext } from "react";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -66,8 +68,8 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export function ContactUs() {
+  const { language, setLanguage } = useContext(LanguageContext);
   const { classes } = useStyles();
-  let { lang } = useParams();
 
   return (
     <>
@@ -115,7 +117,7 @@ export function ContactUs() {
           </div>
         </SimpleGrid>
       </Container>
-      <JoinusSection lang={lang} />
+      <JoinusSection />
     </>
   );
 }

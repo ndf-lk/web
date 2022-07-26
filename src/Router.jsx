@@ -15,7 +15,7 @@ export const ApplicationRouter = () => {
     },
 
     {
-      path: "/contact/:lang",
+      path: "/contact",
       element: (
         <AppLayout>
           <ContactUs />
@@ -24,7 +24,7 @@ export const ApplicationRouter = () => {
     },
 
     {
-      path: "/home/:lang",
+      path: "/home",
       element: (
         <AppLayout>
           <HomePage />

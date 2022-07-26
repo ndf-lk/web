@@ -2,9 +2,13 @@ import { Container, Center, Title, Button, Text } from "@mantine/core";
 import { getData } from "../data/getData";
 import { HeartHandshake } from "tabler-icons-react";
 import { Appconfig } from "../config";
+import { LanguageContext } from "../context/userLangctx";
+import { useContext } from "react";
 
-export const JoinusSection = ({ lang }) => {
-  const data = getData(lang);
+export const JoinusSection = () => {
+  const { language, setLanguage } = useContext(LanguageContext);
+  const data = getData(language);
+
   return (
     <div
       style={{

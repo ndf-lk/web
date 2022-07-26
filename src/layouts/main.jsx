@@ -1,5 +1,7 @@
 import React, { useState, useContext } from "react";
+
 import {
+  Select,
   AppShell,
   createStyles,
   Container,
@@ -128,7 +130,22 @@ export function AppLayout({ children }) {
               >
                 <Text>Application header</Text>
                 <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
-                  <Group spacing={5}>{items}</Group>
+                  <Group spacing={5}>
+                    {items}
+                    <Select
+                      size="xs"
+                      value={language}
+                      onChange={setLanguage}
+                      style={{
+                        width: 80,
+                      }}
+                      data={[
+                        { value: "en", label: "English" },
+                        { value: "si", label: "සිංහල" },
+                        { value: "tm", label: "தமிழ்" },
+                      ]}
+                    />
+                  </Group>
                 </MediaQuery>
               </Group>
             </div>

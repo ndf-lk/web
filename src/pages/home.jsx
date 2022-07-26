@@ -21,11 +21,8 @@ import { Appconfig } from "../config";
 
 export const HomePage = () => {
   const BREAKPOINT = "@media (max-width: 800px)";
-  let { lang } = useParams();
   const { language, setLanguage } = useContext(LanguageContext);
-  setLanguage(lang);
-
-  const data = getData(lang);
+  const data = getData(language);
 
   function AccordionLabel(details) {
     return (
@@ -155,7 +152,7 @@ export const HomePage = () => {
         </Text>
       </Container>
 
-      <JoinusSection lang={lang} />
+      <JoinusSection lang={language} />
     </>
   );
 };
