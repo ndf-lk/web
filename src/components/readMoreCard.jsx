@@ -1,11 +1,4 @@
-import {
-  Text,
-  Paper,
-  Anchor,
-  Stack,
-  UnstyledButton,
-  Button,
-} from "@mantine/core";
+import { Text, Paper, Anchor, Stack, Button } from "@mantine/core";
 import { Link } from "react-router-dom";
 import { ExternalLink } from "tabler-icons-react";
 
@@ -25,7 +18,7 @@ export const ReadMoreCard = ({ title, description, link }) => {
   );
 };
 
-export const LinksCard = ({ lang }) => {
+export const LinksCard = () => {
   return (
     <>
       <Paper
