@@ -1,7 +1,9 @@
 import {
   SimpleGrid,
   Button,
+  Grid,
   Paper,
+  Select,
   Container,
   Text,
   Accordion,
@@ -16,15 +18,20 @@ import { useForm } from "@mantine/form";
 import { LanguageContext } from "../context/userLangctx";
 import { useContext } from "react";
 import { getData } from "../data/getData";
+import { getFormData } from "../data/formData";
 
 export const Join = () => {
   const BREAKPOINT = "@media (max-width: 800px)";
   const { language } = useContext(LanguageContext);
   const data = getData(language);
+  const formdata = getFormData(language);
 
   const form = useForm({
     initialValues: {
       email: "",
+      name: "",
+      phone: "",
+      nic: "",
       termsOfService: false,
     },
 
@@ -72,18 +79,47 @@ export const Join = () => {
         <Container size={"sm"}>
           <Paper shadow="xs" p="md" mt={30}>
             <form onSubmit={form.onSubmit((values) => console.log(values))}>
+              <Grid grow>
+                <Grid.Col span={1}>
+                  <Select
+                    label={formdata?.honorific}
+                    placeholder={formdata.honorific_values[1].label}
+                    data={formdata.honorific_values}
+                  />
+                </Grid.Col>
+                <Grid.Col span={7}>
+                  <TextInput
+                    required
+                    label={formdata.name}
+                    placeholder="John Doe"
+                    {...form.getInputProps("name")}
+                  />
+                </Grid.Col>
+              </Grid>
+
               <TextInput
+                mt={10}
                 required
-                label="Email"
-                placeholder="your@email.com"
-                {...form.getInputProps("email")}
+                label={formdata.nic}
+                placeholder={"790029871V"}
+                {...form.getInputProps("nic")}
               />
 
-              <Checkbox
-                mt="md"
-                label="I agree to sell my privacy"
-                {...form.getInputProps("termsOfService", { type: "checkbox" })}
-              />
+              <Group grow mt={10}>
+                <TextInput
+                  required
+                  label={formdata.phone}
+                  placeholder="+94751231234"
+                  {...form.getInputProps("phone")}
+                />
+
+                <TextInput
+                  required
+                  label={formdata.email}
+                  placeholder="your@email.com"
+                  {...form.getInputProps("email")}
+                />
+              </Group>
 
               <Group position="right" mt="md">
                 <Button type="submit">Submit</Button>

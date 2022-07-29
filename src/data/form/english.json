@@ -1,0 +1,27 @@
+{
+  "name": "Name with initials",
+  "nic": "National Identity Card No Number",
+  "birthday": "Birthday",
+  "address": "Address",
+  "district": "District",
+  "divisionalsecretariat": "Divisional Secretariat",
+  "villageofficerdomain": "Village Officer Domain",
+  "phone": "Phone number",
+  "email": "E-Mail",
+  "honorific": "Honorific",
+  "honorific_values": [
+    {
+      "value": "Venerable",
+      "label": "Venerable"
+    },
+
+    {
+      "value": "Mr",
+      "label": "Mr"
+    },
+    {
+      "value": "Mrs",
+      "label": "Mrs"
+    }
+  ]
+}
