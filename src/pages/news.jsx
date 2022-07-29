@@ -100,51 +100,62 @@ export const News = () => {
           {posts.isError && <p>{posts.error.message}</p>}
           {posts.isSuccess && (
             <>
-              {posts.data.map((post) => {
-                return (
-                  <>
-                    <Card withBorder radius="md" mb={30}>
-                      <Card.Section>
-                        <Image
-                          src={post?.header}
-                          height={120}
-                          alt={post?.title}
-                        />
-                      </Card.Section>
+              {posts.data ? (
+                <>
+                  {posts?.data.length > 0 ? (
+                    <>
+                      {posts.data.map((post) => {
+                        return (
+                          <>
+                            <Card withBorder radius="md" mb={30}>
+                              <Card.Section>
+                                <Image
+                                  src={post?.header}
+                                  height={120}
+                                  alt={post?.title}
+                                />
+                              </Card.Section>
 
-                      <Text
-                        className={classes.title}
-                        weight={900}
-                        size="xl"
-                        component={Link}
-                        to={`/post/${post?.slug}`}
-                      >
-                        {post?.title}
-                      </Text>
+                              <Text
+                                className={classes.title}
+                                weight={900}
+                                size="xl"
+                                component={Link}
+                                to={`/post/${post?.slug}`}
+                              >
+                                {post?.title}
+                              </Text>
 
-                      <Text size="sm" color="dimmed" lineClamp={4}>
-                        {stripHtml(post?.body).result}
-                      </Text>
+                              <Text size="sm" color="dimmed" lineClamp={4}>
+                                {stripHtml(post?.body).result}
+                              </Text>
 
-                      <Group position="right" className={classes.footer}>
-                        <Group spacing={8} mr={0}>
-                          <ActionIcon
-                            color={clipboard.copied ? "teal" : "blue"}
-                            className={classes.action}
-                            onClick={() =>
-                              clipboard.copy(
-                                `${Appconfig.frontendUrl}post/${post?.slug}`
-                              )
-                            }
-                          >
-                            <IconShare size={16} />
-                          </ActionIcon>
-                        </Group>
-                      </Group>
-                    </Card>
-                  </>
-                );
-              })}
+                              <Group
+                                position="right"
+                                className={classes.footer}
+                              >
+                                <Group spacing={8} mr={0}>
+                                  <ActionIcon
+                                    color={clipboard.copied ? "teal" : "blue"}
+                                    className={classes.action}
+                                    onClick={() =>
+                                      clipboard.copy(
+                                        `${Appconfig.frontendUrl}post/${post?.slug}`
+                                      )
+                                    }
+                                  >
+                                    <IconShare size={16} />
+                                  </ActionIcon>
+                                </Group>
+                              </Group>
+                            </Card>
+                          </>
+                        );
+                      })}
+                    </>
+                  ) : null}
+                </>
+              ) : null}
             </>
           )}
         </Container>

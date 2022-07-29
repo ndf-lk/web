@@ -4,6 +4,7 @@ import { HeartHandshake } from "tabler-icons-react";
 import { Appconfig } from "../config";
 import { LanguageContext } from "../context/userLangctx";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 export const JoinusSection = () => {
   const { language, setLanguage } = useContext(LanguageContext);
@@ -34,6 +35,8 @@ export const JoinusSection = () => {
           <Button
             variant="default"
             size="xl"
+            component={Link}
+            to="/join"
             compact
             mt={15}
             leftIcon={<HeartHandshake />}

@@ -5,6 +5,7 @@ import { IndexPage } from "./pages/index";
 import { ContactUs } from "./pages/contact";
 import { News } from "./pages/news";
 import { Post } from "./pages/post";
+import { Join } from "./pages/join";
 
 // layouts
 import { AppLayout } from "./layouts";
@@ -15,7 +16,14 @@ export const ApplicationRouter = () => {
       path: "/",
       element: <IndexPage />,
     },
-
+    {
+      path: "/join",
+      element: (
+        <AppLayout>
+          <Join />
+        </AppLayout>
+      ),
+    },
     {
       path: "/contact",
       element: (
