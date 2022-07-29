@@ -3,7 +3,6 @@ import sinhala from "./sinhala.json";
 import tamil from "./tamil.json";
 
 export const getData = (lang) => {
-  console.log(lang);
   if (lang == "si") {
     return sinhala;
   } else if (lang == "tm") {

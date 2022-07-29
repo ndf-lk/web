@@ -28,11 +28,15 @@ export const Join = () => {
 
   const form = useForm({
     initialValues: {
-      email: "",
       name: "",
-      phone: "",
       nic: "",
-      termsOfService: false,
+      birthday: "",
+      address: "",
+      district: "",
+      DivisionalSecretariat: "",
+      VillageOfficerDomain: "",
+      phone: "",
+      email: "",
     },
 
     validate: {
@@ -120,6 +124,45 @@ export const Join = () => {
                   {...form.getInputProps("email")}
                 />
               </Group>
+
+              <TextInput
+                mt={10}
+                required
+                label={formdata.address}
+                placeholder={"No. 19/1A, Kolamunna Medapatha Road, Piliyandala"}
+                {...form.getInputProps("address")}
+              />
+
+              <SimpleGrid
+                cols={3}
+                mt={10}
+                breakpoints={[
+                  { maxWidth: 980, cols: 3, spacing: "md" },
+                  { maxWidth: 755, cols: 1, spacing: "sm" },
+                  { maxWidth: 600, cols: 1, spacing: "sm" },
+                ]}
+              >
+                <TextInput
+                  required
+                  label={formdata.district}
+                  placeholder={"Colombo"}
+                  {...form.getInputProps("district")}
+                />
+
+                <TextInput
+                  required
+                  label={formdata.divisionalsecretariat}
+                  placeholder={"Piliyandala"}
+                  {...form.getInputProps("DivisionalSecretariat")}
+                />
+
+                <TextInput
+                  required
+                  label={formdata.villageofficerdomain}
+                  placeholder={"Western"}
+                  {...form.getInputProps("VillageOfficerDomain")}
+                />
+              </SimpleGrid>
 
               <Group position="right" mt="md">
                 <Button type="submit">Submit</Button>
