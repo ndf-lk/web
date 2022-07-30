@@ -1,5 +1,5 @@
 export const Appconfig = {
   lightcolor: "#ffe7d8",
-  apiUrl: "http://localhost:4000/api/v2/",
+  apiUrl: import.meta.env.VITE_API_URL,
   frontendUrl: "http://localhost:3001/",
 };
