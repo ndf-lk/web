@@ -1,8 +1,6 @@
 import React, { useState, useContext } from "react";
-
 import {
   Stack,
-  Anchor,
   Select,
   AppShell,
   createStyles,
@@ -72,7 +70,7 @@ export function AppLayout({ children, showHero = false }) {
           key={link.label}
           trigger="hover"
           delay={0}
-          transitionDuration={0}
+          transitionDuration={1}
           placement="end"
           gutter={1}
           control={
@@ -125,6 +123,9 @@ export function AppLayout({ children, showHero = false }) {
                 <Burger
                   style={{
                     zIndex: 1000,
+
+                    transitionDelay: 1,
+                    transition: "ease-in-out",
                   }}
                   opened={opened}
                   onClick={() => setOpened((o) => !o)}

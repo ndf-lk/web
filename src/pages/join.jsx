@@ -6,13 +6,10 @@ import {
   Select,
   Container,
   Text,
-  Accordion,
   Center,
   Group,
   Title,
   TextInput,
-  Checkbox,
-  Box,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { LanguageContext } from "../context/userLangctx";
@@ -23,7 +20,6 @@ import { useMutation } from "@tanstack/react-query";
 import { getFormData } from "../data/formData";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { Appconfig } from "../config";
 import axios from "axios";
 

@@ -6,16 +6,9 @@ import {
   ActionIcon,
   Group,
 } from "@mantine/core";
-import {
-  BrandTwitter,
-  BrandYoutube,
-  BrandGmail,
-  BrandInstagram,
-  BrandFacebook,
-} from "tabler-icons-react";
+import { BrandGmail, BrandInstagram, BrandFacebook } from "tabler-icons-react";
 import data from "./data.json";
 import { Appconfig } from "../../config";
-import { getLinks } from "../../lib/links";
 import { LanguageContext } from "../../context/userLangctx";
 import { getData } from "../../data/getData";
 import socials from "../../data/socials.json";

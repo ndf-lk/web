@@ -7,14 +7,7 @@ import {
   SimpleGrid,
   Box,
 } from "@mantine/core";
-import {
-  Sun,
-  Phone,
-  MapPin,
-  At,
-  BrandFacebook,
-  BrandInstagram,
-} from "tabler-icons-react";
+import { MapPin, At, BrandFacebook, BrandInstagram } from "tabler-icons-react";
 import { Appconfig } from "../config";
 import socials from "../data/socials.json";
 

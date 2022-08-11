@@ -1,7 +1,5 @@
-import { AppHero } from "../components/Hero/hero";
 import {
   SimpleGrid,
-  Button,
   Container,
   Text,
   Accordion,
@@ -11,7 +9,7 @@ import {
 } from "@mantine/core";
 import { ReadMoreCard, LinksCard } from "../components/readMoreCard";
 import { getData } from "../data/getData";
-import { LanguageContext, LanguageSwitcher } from "../context/userLangctx";
+import { LanguageContext } from "../context/userLangctx";
 import { useContext } from "react";
 import { Appconfig } from "../config";
 

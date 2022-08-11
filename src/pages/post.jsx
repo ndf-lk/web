@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import { usePost } from "../hooks/usePost";
 import { Container, Center, Title } from "@mantine/core";
 import { TypographyStylesProvider } from "@mantine/core";
-import { AppHero } from "../components/Hero/hero";
 
 const BREAKPOINT = "@media (max-width: 800px)";
 

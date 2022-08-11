@@ -4,15 +4,12 @@ import {
   Container,
   Text,
   Title,
-  SimpleGrid,
   TextInput,
   Textarea,
   Button,
   Group,
 } from "@mantine/core";
 import { ContactIconsList } from "../components/ContactIcons";
-import { JoinusSection } from "../components/joinUs";
-import { useParams } from "react-router-dom";
 import { LanguageContext } from "../context/userLangctx";
 import { useContext } from "react";
 import { getData } from "../data/getData";

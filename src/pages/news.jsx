@@ -2,20 +2,16 @@ import { useContext, useEffect } from "react";
 import { LanguageContext } from "../context/userLangctx";
 import { usePosts } from "../hooks/useNews";
 import { Container, Title, Center } from "@mantine/core";
-import { IconBookmark, IconHeart, IconShare } from "@tabler/icons";
+import { IconShare } from "@tabler/icons";
 import { stripHtml } from "string-strip-html";
 import { useClipboard } from "@mantine/hooks";
 import { getData } from "../data/getData";
-
 import {
-  Button,
   Card,
   Image,
   Text,
   ActionIcon,
-  Badge,
   Group,
-  Avatar,
   createStyles,
 } from "@mantine/core";
 import { Link } from "react-router-dom";

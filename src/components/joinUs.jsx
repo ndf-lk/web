@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 export const JoinusSection = () => {
-  const { language, setLanguage } = useContext(LanguageContext);
+  const { language } = useContext(LanguageContext);
   const data = getData(language);
 
   return (
