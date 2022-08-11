@@ -34,7 +34,7 @@ export const JoinusSection = () => {
         <Center>
           <Button
             variant="default"
-            size="xl"
+            size="lg"
             component={"a"}
             href="/join"
             compact

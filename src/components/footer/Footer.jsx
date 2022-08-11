@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   createStyles,
   Text,
@@ -6,9 +6,17 @@ import {
   ActionIcon,
   Group,
 } from "@mantine/core";
-import { BrandTwitter, BrandYoutube, BrandInstagram } from "tabler-icons-react";
+import {
+  BrandTwitter,
+  BrandYoutube,
+  BrandInstagram,
+  BrandFacebook,
+} from "tabler-icons-react";
 import data from "./data.json";
 import { Appconfig } from "../../config";
+import { getLinks } from "../../lib/links";
+import { LanguageContext } from "../../context/userLangctx";
+import { getData } from "../../data/getData";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -21,7 +29,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   logo: {
-    maxWidth: 200,
+    maxWidth: 400,
 
     [theme.fn.smallerThan("sm")]: {
       display: "flex",
@@ -110,6 +118,9 @@ const useStyles = createStyles((theme) => ({
 
 export function ApplicationFooter() {
   const { classes } = useStyles();
+  const { language } = useContext(LanguageContext);
+  const pdata = getData(language);
+
   const groups = data.map((group) => {
     const links = group.links.map((link, index) => (
       <Text
@@ -135,24 +146,29 @@ export function ApplicationFooter() {
       <Container className={classes.inner}>
         <div className={classes.logo}>
           <Text size="xs" color="dimmed" className={classes.description}>
-            Build fully functional accessible web applications faster than ever
+            {pdata.welcomedesc}
           </Text>
         </div>
         <div className={classes.groups}>{groups}</div>
       </Container>
       <Container className={classes.afterFooter}>
         <Text color="dimmed" size="sm">
-          © 2020 mantine.dev. All rights reserved.
+          © {new Date().getFullYear()} ndf.lk. All rights reserved.
         </Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>
-          <ActionIcon size="lg">
-            <BrandTwitter size={18} />
+          <ActionIcon
+            size="lg"
+            component="a"
+            href="https://www.facebook.com/NationalDemocraticFrontlka"
+          >
+            <BrandFacebook size={18} />
           </ActionIcon>
-          <ActionIcon size="lg">
-            <BrandYoutube size={18} />
-          </ActionIcon>
-          <ActionIcon size="lg">
+          <ActionIcon
+            size="lg"
+            component="a"
+            href="https://www.instagram.com/nationaldemocraticfront.lk/"
+          >
             <BrandInstagram size={18} />
           </ActionIcon>
         </Group>
