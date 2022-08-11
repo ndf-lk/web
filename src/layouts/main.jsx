@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 
 import {
+  Stack,
   Select,
   AppShell,
   createStyles,
@@ -102,7 +103,24 @@ export function AppLayout({ children }) {
             hidden={!opened}
             width={{ sm: 200, lg: 300 }}
           >
-            <Text>Application navbar</Text>
+            {/*  Mobile Nav Bar Items */}
+
+            <Stack>
+              {items}
+              <Select
+                size="xs"
+                value={language}
+                onChange={setLanguage}
+                style={{
+                  width: 80,
+                }}
+                data={[
+                  { value: "en", label: "English" },
+                  { value: "si", label: "සිංහල" },
+                  { value: "tm", label: "தமிழ்" },
+                ]}
+              />
+            </Stack>
           </Navbar>
         </MediaQuery>
       }
