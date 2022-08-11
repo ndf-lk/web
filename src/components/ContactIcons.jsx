@@ -16,6 +16,7 @@ import {
   BrandInstagram,
 } from "tabler-icons-react";
 import { Appconfig } from "../config";
+import socials from "../data/socials.json";
 
 const useStyles = createStyles((theme, { variant }) => ({
   wrapper: {
@@ -44,6 +45,7 @@ function ContactIcon({
   icon: Icon,
   title,
   description,
+  link,
   variant = "gradient",
   className,
   ...others
@@ -65,29 +67,40 @@ function ContactIcon({
         <Text size="xs" className={classes.title}>
           {title}
         </Text>
-        <Text className={classes.description}>{description}</Text>
+        <Text className={classes.description} component={"a"} href={link}>
+          {description}
+        </Text>
       </div>
     </div>
   );
 }
 
 const MOCKDATA = [
-  { title: "Email", description: "contact.ndf.lk@gmail.com", icon: At },
+  {
+    title: "Email",
+    description: socials.email,
+    icon: At,
+    link: `mailto:${socials.email}`,
+  },
   {
     title: "Address",
     description: "No. 19/1A, Kolamunna Medapatha Road, Piliyandala",
     icon: MapPin,
+    link: "#",
   },
 
   {
     title: "Facebook",
     description: "/NationalDemocraticFront.lk",
     icon: BrandFacebook,
+
+    link: socials.fb,
   },
   {
     title: "Instagram",
     description: "/nationaldemocraticfront.lk",
     icon: BrandInstagram,
+    link: socials.ig,
   },
 ];
 

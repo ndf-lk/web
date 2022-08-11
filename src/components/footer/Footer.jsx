@@ -9,6 +9,7 @@ import {
 import {
   BrandTwitter,
   BrandYoutube,
+  BrandGmail,
   BrandInstagram,
   BrandFacebook,
 } from "tabler-icons-react";
@@ -17,6 +18,7 @@ import { Appconfig } from "../../config";
 import { getLinks } from "../../lib/links";
 import { LanguageContext } from "../../context/userLangctx";
 import { getData } from "../../data/getData";
+import socials from "../../data/socials.json";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -157,19 +159,15 @@ export function ApplicationFooter() {
         </Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>
-          <ActionIcon
-            size="lg"
-            component="a"
-            href="https://www.facebook.com/NationalDemocraticFrontlka"
-          >
+          <ActionIcon size="lg" component="a" href={socials.fb}>
             <BrandFacebook size={18} />
           </ActionIcon>
-          <ActionIcon
-            size="lg"
-            component="a"
-            href="https://www.instagram.com/nationaldemocraticfront.lk/"
-          >
+          <ActionIcon size="lg" component="a" href={socials.ig}>
             <BrandInstagram size={18} />
+          </ActionIcon>
+
+          <ActionIcon size="lg" component="a" href={`mailto:${socials.email}`}>
+            <BrandGmail size={18} />
           </ActionIcon>
         </Group>
       </Container>
