@@ -19,12 +19,21 @@ import { LanguageContext } from "../context/userLangctx";
 import { useContext } from "react";
 import { getData } from "../data/getData";
 import { getFormData } from "../data/formData";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export const Join = () => {
   const BREAKPOINT = "@media (max-width: 800px)";
   const { language } = useContext(LanguageContext);
   const data = getData(language);
   const formdata = getFormData(language);
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const form = useForm({
     initialValues: {
