@@ -35,8 +35,8 @@ export const JoinusSection = () => {
           <Button
             variant="default"
             size="xl"
-            component={Link}
-            to="/join"
+            component={"a"}
+            href="/join"
             compact
             mt={15}
             leftIcon={<HeartHandshake />}
