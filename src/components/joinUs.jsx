@@ -41,7 +41,7 @@ export const JoinusSection = () => {
             mt={15}
             leftIcon={<HeartHandshake />}
           >
-            join us
+            {data.joinusbtn}
           </Button>
         </Center>
       </Container>
