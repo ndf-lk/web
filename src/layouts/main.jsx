@@ -26,6 +26,7 @@ import { AppHero } from "../components/Hero/hero";
 
 // Layout content
 import { AppFooter } from "./footer";
+import { NewsBar } from "../components/newsBar";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -201,7 +202,12 @@ export function AppLayout({ children, showHero = false }) {
       }
       header={
         <>
-          {showHero ? <AppHero /> : null}
+          {showHero ? (
+            <>
+              <NewsBar />
+              <AppHero />
+            </>
+          ) : null}
           <HeaderComponent />
         </>
       }
