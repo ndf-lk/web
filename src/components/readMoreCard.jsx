@@ -29,9 +29,9 @@ export const LinksCard = () => {
         radius={0}
       >
         <Stack>
-          <LinkBtn link={"/"} text="More events" />
-          <LinkBtn link={"/"} text="All news" />
-          <LinkBtn link={"/"} text="About us" />
+          <LinkBtn link={"/home"} text="About us" />
+          <LinkBtn link={"/news"} text="All news" />
+          <LinkBtn link={"/contact"} text="Contact us" />
         </Stack>
       </Paper>
     </>
