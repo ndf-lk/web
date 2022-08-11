@@ -9,9 +9,16 @@ import { LanguageContext } from "./context/userLangctx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
+// hooks
+import { useLocalStorage } from "@mantine/hooks";
+
 function App() {
   const queryClient = new QueryClient();
-  const [language, setLanguage] = useState("en");
+  const [language, setLanguage] = useLocalStorage({
+    key: "language",
+    defaultValue: "en",
+  });
+
   const value = { language, setLanguage };
 
   return (
