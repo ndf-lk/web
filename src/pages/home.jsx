@@ -10,18 +10,14 @@ import {
   Title,
 } from "@mantine/core";
 import { ReadMoreCard, LinksCard } from "../components/readMoreCard";
-import { HeartHandshake } from "tabler-icons-react";
-import { ApplicationFooter } from "../components/footer/Footer";
-import { useParams } from "react-router-dom";
 import { getData } from "../data/getData";
-import { JoinusSection } from "../components/joinUs";
 import { LanguageContext, LanguageSwitcher } from "../context/userLangctx";
 import { useContext } from "react";
 import { Appconfig } from "../config";
 
 export const HomePage = () => {
-  const BREAKPOINT = "@media (max-width: 800px)";
-  const { language, setLanguage } = useContext(LanguageContext);
+  const BREAKPOINT = "@media (maxWidth: 800px)";
+  const { language } = useContext(LanguageContext);
   const data = getData(language);
 
   function AccordionLabel(details) {
@@ -36,16 +32,14 @@ export const HomePage = () => {
 
   return (
     <>
-      <AppHero />
-
-      <Container size="lg" mt={50}>
+      <Container size="lg" mt={20}>
         <Center>
           <Title
             weight={900}
             mt={10}
             mb={10}
             style={{
-              "text-align": "center",
+              textAlign: "center",
               fontSize: 50,
               lineHeight: 1.1,
               margin: 0,
@@ -67,7 +61,7 @@ export const HomePage = () => {
           weight={600}
           color="gray"
           style={{
-            "text-align": "center",
+            textAlign: "center",
           }}
         >
           {data.description}

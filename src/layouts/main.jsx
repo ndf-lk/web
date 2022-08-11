@@ -18,12 +18,14 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { Link } from "react-router-dom";
-import { ApplicationFooter } from "../components/footer/Footer";
 import { getLinks } from "../lib/links";
 import { ChevronDown } from "tabler-icons-react";
 import { LanguageContext } from "../context/userLangctx";
-import { JoinusSection } from "../components/joinUs";
 import { getData } from "../data/getData";
+import { AppHero } from "../components/Hero/hero";
+
+// Layout content
+import { AppFooter } from "./footer";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -49,7 +51,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export function AppLayout({ children }) {
+export function AppLayout({ children, showHero = false }) {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
   const { classes } = useStyles();
@@ -94,47 +96,22 @@ export function AppLayout({ children }) {
 
   const itemsMobile = links.map((link) => {
     return (
-      <Anchor key={link.label} href={`${link.link}`} className={classes.link}>
+      <Link key={link.label} to={`${link.link}`} className={classes.link}>
         {link.label}
-      </Anchor>
+      </Link>
     );
   });
 
-  return (
-    <AppShell
-      padding={0}
-      navbar={
-        <MediaQuery largerThan="sm" styles={{ display: "none" }}>
-          <Navbar
-            fixed
-            p="md"
-            hiddenBreakpoint="sm"
-            hidden={!opened}
-            width={{ sm: 200, lg: 300 }}
-          >
-            {/*  Mobile Nav Bar Items */}
-
-            <Stack>
-              {itemsMobile}
-              <Select
-                size="xs"
-                value={language}
-                onChange={setLanguage}
-                style={{
-                  width: 80,
-                }}
-                data={[
-                  { value: "en", label: "English" },
-                  { value: "si", label: "සිංහල" },
-                  { value: "tm", label: "தமிழ்" },
-                ]}
-              />
-            </Stack>
-          </Navbar>
-        </MediaQuery>
-      }
-      header={
-        <Header height={70} p="md">
+  const HeaderComponent = () => {
+    return (
+      <>
+        <Header
+          height={70}
+          p="md"
+          style={{
+            position: "sticky",
+          }}
+        >
           <Container>
             <div
               style={{
@@ -145,6 +122,9 @@ export function AppLayout({ children }) {
             >
               <MediaQuery largerThan="sm" styles={{ display: "none" }}>
                 <Burger
+                  style={{
+                    zIndex: 999,
+                  }}
                   opened={opened}
                   onClick={() => setOpened((o) => !o)}
                   size="sm"
@@ -183,12 +163,51 @@ export function AppLayout({ children }) {
             </div>
           </Container>
         </Header>
+      </>
+    );
+  };
+
+  return (
+    <AppShell
+      padding={0}
+      navbar={
+        <MediaQuery largerThan="sm" styles={{ display: "none" }}>
+          <Navbar
+            p="md"
+            hiddenBreakpoint="sm"
+            hidden={!opened}
+            fixed
+            width={{ sm: 200, lg: 300 }}
+          >
+            {/*  Mobile Nav Bar Items */}
+            <Stack>
+              {itemsMobile}
+              <Select
+                size="xs"
+                value={language}
+                onChange={setLanguage}
+                style={{
+                  width: 80,
+                }}
+                data={[
+                  { value: "en", label: "English" },
+                  { value: "si", label: "සිංහල" },
+                  { value: "tm", label: "தமிழ்" },
+                ]}
+              />
+            </Stack>
+          </Navbar>
+        </MediaQuery>
+      }
+      header={
+        <>
+          {showHero ? <AppHero /> : null}
+          <HeaderComponent />
+        </>
       }
       footer={
         <>
-          <JoinusSection />
-
-          <ApplicationFooter />
+          <AppFooter />
         </>
       }
     >

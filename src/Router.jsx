@@ -54,7 +54,7 @@ export const ApplicationRouter = () => {
     {
       path: "/home",
       element: (
-        <AppLayout>
+        <AppLayout showHero={true}>
           <HomePage />
         </AppLayout>
       ),

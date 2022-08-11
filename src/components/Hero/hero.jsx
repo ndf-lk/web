@@ -1,18 +1,28 @@
 import React from "react";
+import { useMediaQuery } from "@mantine/hooks";
+import "./index.css";
 
 export function AppHero({ customImage }) {
+  const matches = useMediaQuery("(min-width: 900px)", false);
+  let height = matches ? 450 : 200;
   return (
     <>
-      <div>
-        <img
-          style={{
-            display: "inline-block",
-            verticalAlign: "middle",
-            maxWidth: "100%",
-          }}
-          srcSet="/banner.jpg"
-        />
-      </div>
+      <div
+        className="hero-image"
+        color={matches ? "teal" : "red"}
+        style={{
+          backgroundImage: 'url("/header.png")',
+          height: height,
+        }}
+      ></div>
     </>
   );
 }
+
+/*
+ *  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  */

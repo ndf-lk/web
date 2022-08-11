@@ -18,16 +18,24 @@ import { useForm } from "@mantine/form";
 import { LanguageContext } from "../context/userLangctx";
 import { useContext } from "react";
 import { getData } from "../data/getData";
+import { showNotification } from "@mantine/notifications";
+import { useMutation } from "@tanstack/react-query";
 import { getFormData } from "../data/formData";
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Appconfig } from "../config";
+import axios from "axios";
 
 export const Join = () => {
-  const BREAKPOINT = "@media (max-width: 800px)";
+  const BREAKPOINT = "@media (maxWidth: 800px)";
   const { language } = useContext(LanguageContext);
   const data = getData(language);
   const formdata = getFormData(language);
+
+  const [honorificSelection, setHonorificSelection] = useState(
+    formdata.honorific_values[1].label
+  );
 
   const { pathname } = useLocation();
 
@@ -39,7 +47,6 @@ export const Join = () => {
     initialValues: {
       name: "",
       nic: "",
-      birthday: "",
       address: "",
       district: "",
       DivisionalSecretariat: "",
@@ -53,6 +60,32 @@ export const Join = () => {
     },
   });
 
+  const userJoinMutation = useMutation((data) => {
+    return axios.post(`${Appconfig.apiUrl}/member/join`, data);
+  });
+
+  const submitForm = async (values) => {
+    values.name = `${honorificSelection} ${values.name}`;
+    console.log(JSON.stringify(values, 2, null));
+
+    try {
+      const data = await userJoinMutation.mutateAsync(values);
+      showNotification({
+        title: "Request sent successfully",
+        message:
+          "Your membership request has been sent successfully, you will get a email after you get acceptd",
+        color: "teal",
+      });
+    } catch (err) {
+      showNotification({
+        title: "Error!",
+        message: err?.message,
+        color: "red",
+      });
+      console.log(err);
+    }
+  };
+
   return (
     <>
       <Container size="lg" mt={50}>
@@ -62,7 +95,7 @@ export const Join = () => {
             mt={10}
             mb={10}
             style={{
-              "text-align": "center",
+              textAlign: "center",
               fontSize: 50,
               lineHeight: 1.1,
               margin: 0,
@@ -84,17 +117,19 @@ export const Join = () => {
           weight={600}
           color="gray"
           style={{
-            "text-align": "center",
+            textAlign: "center",
           }}
         >
           {data.forthe}
         </Text>
         <Container size={"sm"}>
           <Paper shadow="xs" p="md" mt={30}>
-            <form onSubmit={form.onSubmit((values) => console.log(values))}>
+            <form onSubmit={form.onSubmit((values) => submitForm(values))}>
               <Grid grow>
                 <Grid.Col span={1}>
                   <Select
+                    value={honorificSelection}
+                    onChange={setHonorificSelection}
                     label={formdata?.honorific}
                     placeholder={formdata.honorific_values[1].label}
                     data={formdata.honorific_values}
