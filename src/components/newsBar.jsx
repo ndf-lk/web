@@ -9,7 +9,7 @@ import {
 import Marquee from "react-fast-marquee";
 import { usePosts } from "../hooks/useNews";
 import { LanguageContext } from "../context/userLangctx";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Appconfig } from "../config";
 import { Link } from "react-router-dom";
 
@@ -19,6 +19,10 @@ export const NewsBar = ({ isColor = false }) => {
 
   let headerColor = isColor ? Appconfig.lightcolor : "#FFFFFF";
   let header_rbg = isColor ? Appconfig.lightcolor_rgb : [255, 255, 255];
+
+  useEffect(() => {
+    posts.refetch(language);
+  }, [language]);
 
   const ShowPosts = ({ speed }) => {
     return (
@@ -85,7 +89,7 @@ export const NewsBar = ({ isColor = false }) => {
           <Container
             size="xl"
             style={{
-              width: 900,
+              width: 960,
             }}
           >
             <Grid columns={24}>

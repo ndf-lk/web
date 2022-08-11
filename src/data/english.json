@@ -13,6 +13,8 @@
   "obligationsesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sapien ligula, viverra eu enim nec, pulvinar hendrerit sem. Aliquam sit",
   "newstitle":"Press Releases",
   "contactus": "Contact us",
+  "contactdescription":"Leave your email and we will get back to you within 24 hours",
+  "sendamessage":"Send us a message",
   "PointDetails": [
     {
       "key": 1,

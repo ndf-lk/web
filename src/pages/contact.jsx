@@ -39,8 +39,10 @@ const useStyles = createStyles((theme) => ({
 
   form: {
     padding: theme.spacing.xl,
+    paddingTop: theme.spacing.sm,
     borderRadius: theme.radius.md,
     border: "1px solid black",
+    marginTop: 50,
   },
 
   social: {
@@ -76,49 +78,58 @@ export function ContactUs() {
   return (
     <>
       <Container mt={50} mb={90}>
+        <div>
+          <Title className={classes.title}>{pdata?.contactus}</Title>
+          <Text className={classes.description} mt="sm" mb={30}>
+            {pdata?.contactdescription}
+          </Text>
+
+          <ContactIconsList />
+        </div>
+        <div className={classes.form}>
+          <Title className={classes.title} mb={20}>
+            {pdata?.sendamessage}
+          </Title>
+          <TextInput
+            label="Email"
+            placeholder="your@email.com"
+            required
+            classNames={{ input: classes.input, label: classes.inputLabel }}
+          />
+          <TextInput
+            label="Name"
+            placeholder="John Doe"
+            mt="md"
+            classNames={{ input: classes.input, label: classes.inputLabel }}
+          />
+          <Textarea
+            required
+            label="Your message"
+            placeholder="I want to talk about..."
+            minRows={4}
+            mt="md"
+            classNames={{ input: classes.input, label: classes.inputLabel }}
+          />
+
+          <Group position="right" mt="md">
+            <Button variant="default" radius="md" size="md">
+              {pdata?.sendamessage}
+            </Button>
+          </Group>
+        </div>
+      </Container>
+    </>
+  );
+}
+
+{
+  /* 
         <SimpleGrid
           cols={2}
           spacing={50}
           breakpoints={[{ maxWidth: "sm", cols: 1 }]}
         >
-          <div>
-            <Title className={classes.title}>{pdata?.contactus}</Title>
-            <Text className={classes.description} mt="sm" mb={30}>
-              Leave your email and we will get back to you within 24 hours
-            </Text>
 
-            <ContactIconsList />
-          </div>
-          <div className={classes.form}>
-            <TextInput
-              label="Email"
-              placeholder="your@email.com"
-              required
-              classNames={{ input: classes.input, label: classes.inputLabel }}
-            />
-            <TextInput
-              label="Name"
-              placeholder="John Doe"
-              mt="md"
-              classNames={{ input: classes.input, label: classes.inputLabel }}
-            />
-            <Textarea
-              required
-              label="Your message"
-              placeholder="I want to talk about..."
-              minRows={4}
-              mt="md"
-              classNames={{ input: classes.input, label: classes.inputLabel }}
-            />
-
-            <Group position="right" mt="md">
-              <Button variant="default" radius="md" size="md">
-                Send message
-              </Button>
-            </Group>
-          </div>
         </SimpleGrid>
-      </Container>
-    </>
-  );
+*/
 }

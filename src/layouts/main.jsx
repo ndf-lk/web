@@ -124,7 +124,7 @@ export function AppLayout({ children, showHero = false }) {
               <MediaQuery largerThan="sm" styles={{ display: "none" }}>
                 <Burger
                   style={{
-                    zIndex: 999,
+                    zIndex: 1000,
                   }}
                   opened={opened}
                   onClick={() => setOpened((o) => !o)}
@@ -177,10 +177,8 @@ export function AppLayout({ children, showHero = false }) {
             p="md"
             hiddenBreakpoint="sm"
             hidden={!opened}
-            fixed
             width={{ sm: 200, lg: 300 }}
           >
-            {/*  Mobile Nav Bar Items */}
             <Stack>
               {itemsMobile}
               <Select

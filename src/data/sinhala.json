@@ -13,6 +13,8 @@
   "obligationsesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sapien ligula, viverra eu enim nec, pulvinar hendrerit sem. Aliquam sit",
   "newstitle": "පුවත්පත් නිවේදන",
   "contactus": "අප අමතන්න",
+  "contactdescription":"ඔබගේ විද්‍යුත් තැපෑල තබන්න, අපි පැය 24ක් ඇතුළත ඔබ වෙත ආපසු එන්නෙමු",
+  "sendamessage":"අපට පණිවිඩයක් එවන්න",
   "PointDetails": [
     {
       "key": 1,

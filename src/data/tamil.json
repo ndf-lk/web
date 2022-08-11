@@ -13,6 +13,8 @@
   "obligationsesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sapien ligula, viverra eu enim nec, pulvinar hendrerit sem. Aliquam sit",
   "newstitle": "செய்தி வெளியீடுகள்",
   "contactus": "எங்களை தொடர்பு கொள்ள",
+  "contactdescription":"உங்கள் மின்னஞ்சலை அனுப்பவும், நாங்கள் 24 மணிநேரத்திற்குள் உங்களைத் தொடர்புகொள்வோம்",
+  "sendamessage":"எங்களுக்கு ஒரு செய்தி அனுப்பவும்",
   "PointDetails": [
     {
       "key": 1,
