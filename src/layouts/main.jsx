@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 
 import {
   Stack,
+  Anchor,
   Select,
   AppShell,
   createStyles,
@@ -91,6 +92,14 @@ export function AppLayout({ children }) {
     );
   });
 
+  const itemsMobile = links.map((link) => {
+    return (
+      <Anchor key={link.label} href={`${link.link}`} className={classes.link}>
+        {link.label}
+      </Anchor>
+    );
+  });
+
   return (
     <AppShell
       padding={0}
@@ -106,7 +115,7 @@ export function AppLayout({ children }) {
             {/*  Mobile Nav Bar Items */}
 
             <Stack>
-              {items}
+              {itemsMobile}
               <Select
                 size="xs"
                 value={language}
