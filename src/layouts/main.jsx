@@ -202,9 +202,9 @@ export function AppLayout({ children, showHero = false }) {
       }
       header={
         <>
+          <NewsBar isColor={!showHero} />
           {showHero ? (
             <>
-              <NewsBar />
               <AppHero />
             </>
           ) : null}

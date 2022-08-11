@@ -1,23 +1,33 @@
 import {
   Title,
+  Text,
   Navbar,
   Container,
   Grid,
-  Anchor,
   MediaQuery,
 } from "@mantine/core";
 import Marquee from "react-fast-marquee";
 import { usePosts } from "../hooks/useNews";
 import { LanguageContext } from "../context/userLangctx";
 import { useContext } from "react";
+import { Appconfig } from "../config";
+import { Link } from "react-router-dom";
 
-export const NewsBar = () => {
+export const NewsBar = ({ isColor = false }) => {
   const { language } = useContext(LanguageContext);
   const posts = usePosts(language);
 
+  let headerColor = isColor ? Appconfig.lightcolor : "#FFFFFF";
+  let header_rbg = isColor ? Appconfig.lightcolor_rgb : [255, 255, 255];
+
   const ShowPosts = ({ speed }) => {
     return (
-      <Marquee speed={speed} gradientWidth={100}>
+      <Marquee
+        speed={speed}
+        gradientWidth={100}
+        gradientColor={header_rbg}
+        pauseOnHover
+      >
         {posts.isLoading && <>Loading Posts...</>}
         {posts.isError && <>{posts.error.message}</>}
         {posts.isSuccess && (
@@ -27,14 +37,15 @@ export const NewsBar = () => {
                 {posts.data.map((post) => {
                   return (
                     <>
-                      <Anchor
-                        href={`/post/${post?.slug}`}
+                      <Text
+                        component={Link}
+                        to={`/post/${post?.slug}`}
                         ml={50}
                         mr={50}
                         key={post?.ID}
                       >
                         {post?.title}
-                      </Anchor>
+                      </Text>
                     </>
                   );
                 })}
@@ -50,7 +61,13 @@ export const NewsBar = () => {
 
   return (
     <>
-      <Navbar height={40} p="xs">
+      <Navbar
+        height={40}
+        p="xs"
+        style={{
+          backgroundColor: headerColor,
+        }}
+      >
         {/* Mobile */}
         <MediaQuery largerThan="lg" styles={{ display: "none" }}>
           <Grid columns={24}>
@@ -72,10 +89,10 @@ export const NewsBar = () => {
             }}
           >
             <Grid columns={24}>
-              <Grid.Col span={4}>
+              <Grid.Col span={2}>
                 <Title order={4}>News</Title>
               </Grid.Col>
-              <Grid.Col span={20}>
+              <Grid.Col span={22}>
                 <ShowPosts speed={50} />
               </Grid.Col>
             </Grid>
