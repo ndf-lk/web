@@ -3,6 +3,7 @@ import {
   Stack,
   Select,
   AppShell,
+  Button,
   createStyles,
   Container,
   Group,
@@ -17,7 +18,7 @@ import {
 } from "@mantine/core";
 import { Link } from "react-router-dom";
 import { getLinks } from "../lib/links";
-import { ChevronDown } from "tabler-icons-react";
+import { ChevronDown, HeartHandshake } from "tabler-icons-react";
 import { LanguageContext } from "../context/userLangctx";
 import { getData } from "../data/getData";
 import { AppHero } from "../components/Hero/hero";
@@ -93,6 +94,36 @@ export function AppLayout({ children, showHero = false }) {
     );
   });
 
+  const HeaderBtnStuff = () => {
+    return (
+      <>
+        <Select
+          size="xs"
+          value={language}
+          onChange={setLanguage}
+          style={{
+            width: 80,
+          }}
+          data={[
+            { value: "en", label: "English" },
+            { value: "si", label: "සිංහල" },
+            { value: "tm", label: "தமிழ்" },
+          ]}
+        />
+
+        <Button
+          size="xs"
+          component={Link}
+          variant="default"
+          to="/join"
+          leftIcon={<HeartHandshake size={15} />}
+        >
+          {pdata?.joinusbtn}
+        </Button>
+      </>
+    );
+  };
+
   const itemsMobile = links.map((link) => {
     return (
       <Link key={link.label} to={`${link.link}`} className={classes.link}>
@@ -146,19 +177,7 @@ export function AppLayout({ children, showHero = false }) {
                 <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
                   <Group spacing={5}>
                     {items}
-                    <Select
-                      size="xs"
-                      value={language}
-                      onChange={setLanguage}
-                      style={{
-                        width: 80,
-                      }}
-                      data={[
-                        { value: "en", label: "English" },
-                        { value: "si", label: "සිංහල" },
-                        { value: "tm", label: "தமிழ்" },
-                      ]}
-                    />
+                    <HeaderBtnStuff />
                   </Group>
                 </MediaQuery>
               </Group>
@@ -182,19 +201,8 @@ export function AppLayout({ children, showHero = false }) {
           >
             <Stack>
               {itemsMobile}
-              <Select
-                size="xs"
-                value={language}
-                onChange={setLanguage}
-                style={{
-                  width: 80,
-                }}
-                data={[
-                  { value: "en", label: "English" },
-                  { value: "si", label: "සිංහල" },
-                  { value: "tm", label: "தமிழ்" },
-                ]}
-              />
+
+              <HeaderBtnStuff />
             </Stack>
           </Navbar>
         </MediaQuery>
