@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import {
   Title,
+  Text,
   Stack,
-  Select,
   AppShell,
   Button,
   createStyles,
@@ -10,7 +10,6 @@ import {
   Group,
   Navbar,
   Header,
-  Text,
   MediaQuery,
   Burger,
   Menu,
@@ -23,8 +22,6 @@ import { ChevronDown, HeartHandshake } from "tabler-icons-react";
 import { LanguageContext } from "../context/userLangctx";
 import { getData } from "../data/getData";
 import { AppHero } from "../components/Hero/hero";
-import Logo from "../assets/logo.svg";
-import BlacandWhiteLogo from "../assets/bandwlogo.svg";
 import { Appconfig } from "../config";
 
 // Layout content
@@ -59,7 +56,7 @@ export function AppLayout({ children, showHero = false }) {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
   const { classes } = useStyles();
-  const { language, setLanguage } = useContext(LanguageContext);
+  const { language } = useContext(LanguageContext);
   const pdata = getData(language);
 
   const links = getLinks(language);
@@ -93,7 +90,9 @@ export function AppLayout({ children, showHero = false }) {
     }
     return (
       <Link key={link.label} to={`${link.link}`} className={classes.link}>
-        {link.label}
+        <Text>
+          <b>{link.label}</b>
+        </Text>
       </Link>
     );
   });
@@ -117,7 +116,7 @@ export function AppLayout({ children, showHero = false }) {
   const itemsMobile = links.map((link) => {
     return (
       <Link key={link.label} to={`${link.link}`} className={classes.link}>
-        {link.label}
+        <b>{link.label}</b>
       </Link>
     );
   });
@@ -131,12 +130,14 @@ export function AppLayout({ children, showHero = false }) {
           pt={"md"}
           style={{
             position: "sticky",
+            width: "100%",
             backgroundColor: Appconfig.lightcolor,
           }}
         >
           <Container>
             <div
               style={{
+                width: "100%",
                 display: "flex",
                 alignItems: "center",
                 height: "100%",
@@ -163,7 +164,14 @@ export function AppLayout({ children, showHero = false }) {
                   width: "100%",
                 }}
               >
-                <Title order={3}>{pdata?.SecondaryTitle}</Title>
+                <Title
+                  order={5}
+                  style={{
+                    fontWeight: 1000,
+                  }}
+                >
+                  {pdata?.SecondaryTitle}
+                </Title>
 
                 <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
                   <Group spacing={5}>
