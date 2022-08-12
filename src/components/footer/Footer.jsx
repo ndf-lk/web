@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import {
   createStyles,
   Text,
+  Select,
   Container,
   ActionIcon,
   Group,
@@ -113,7 +114,7 @@ const useStyles = createStyles((theme) => ({
 
 export function ApplicationFooter() {
   const { classes } = useStyles();
-  const { language } = useContext(LanguageContext);
+  const { language, setLanguage } = useContext(LanguageContext);
   const pdata = getData(language);
 
   const groups = data.map((group) => {
@@ -143,7 +144,23 @@ export function ApplicationFooter() {
           <Text size="xs" color="dimmed" className={classes.description}>
             {pdata.welcomedesc}
           </Text>
+
+          <Select
+            size="sm"
+            value={language}
+            onChange={setLanguage}
+            mt={30}
+            style={{
+              width: 100,
+            }}
+            data={[
+              { value: "en", label: "English" },
+              { value: "si", label: "සිංහල" },
+              { value: "tm", label: "தமிழ்" },
+            ]}
+          />
         </div>
+
         <div className={classes.groups}>{groups}</div>
       </Container>
       <Container className={classes.afterFooter}>

@@ -22,6 +22,8 @@ import { ChevronDown, HeartHandshake } from "tabler-icons-react";
 import { LanguageContext } from "../context/userLangctx";
 import { getData } from "../data/getData";
 import { AppHero } from "../components/Hero/hero";
+import Logo from "../assets/logo.svg";
+import BlacandWhiteLogo from "../assets/bandwlogo.svg";
 
 // Layout content
 import { AppFooter } from "./footer";
@@ -97,22 +99,8 @@ export function AppLayout({ children, showHero = false }) {
   const HeaderBtnStuff = () => {
     return (
       <>
-        <Select
-          size="xs"
-          value={language}
-          onChange={setLanguage}
-          style={{
-            width: 80,
-          }}
-          data={[
-            { value: "en", label: "English" },
-            { value: "si", label: "සිංහල" },
-            { value: "tm", label: "தமிழ்" },
-          ]}
-        />
-
         <Button
-          size="xs"
+          size="sm"
           component={Link}
           variant="default"
           to="/join"
@@ -133,11 +121,11 @@ export function AppLayout({ children, showHero = false }) {
   });
 
   const HeaderComponent = () => {
+    // NOTE: removed header padding
     return (
       <>
         <Header
           height={70}
-          p="md"
           style={{
             position: "sticky",
           }}
@@ -171,9 +159,16 @@ export function AppLayout({ children, showHero = false }) {
                   width: "100%",
                 }}
               >
-                <Text weight={1000} component={Link} to="/home">
-                  {pdata?.SecondaryTitle}
-                </Text>
+                <img
+                  src={BlacandWhiteLogo}
+                  className="App-logo"
+                  alt={pdata?.SecondaryTitle}
+                  style={{
+                    width: 80,
+                    height: 80,
+                  }}
+                />
+
                 <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
                   <Group spacing={5}>
                     {items}
