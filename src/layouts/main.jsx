@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import {
+  Title,
   Stack,
   Select,
   AppShell,
@@ -24,6 +25,7 @@ import { getData } from "../data/getData";
 import { AppHero } from "../components/Hero/hero";
 import Logo from "../assets/logo.svg";
 import BlacandWhiteLogo from "../assets/bandwlogo.svg";
+import { Appconfig } from "../config";
 
 // Layout content
 import { AppFooter } from "./footer";
@@ -126,8 +128,10 @@ export function AppLayout({ children, showHero = false }) {
       <>
         <Header
           height={70}
+          pt={"md"}
           style={{
             position: "sticky",
+            backgroundColor: Appconfig.lightcolor,
           }}
         >
           <Container>
@@ -159,15 +163,7 @@ export function AppLayout({ children, showHero = false }) {
                   width: "100%",
                 }}
               >
-                <img
-                  src={BlacandWhiteLogo}
-                  className="App-logo"
-                  alt={pdata?.SecondaryTitle}
-                  style={{
-                    width: 80,
-                    height: 80,
-                  }}
-                />
+                <Title order={3}>{pdata?.SecondaryTitle}</Title>
 
                 <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
                   <Group spacing={5}>

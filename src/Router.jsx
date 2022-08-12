@@ -19,7 +19,7 @@ export const ApplicationRouter = () => {
     {
       path: "/join",
       element: (
-        <AppLayout>
+        <AppLayout showHero={true}>
           <Join />
         </AppLayout>
       ),
@@ -27,7 +27,7 @@ export const ApplicationRouter = () => {
     {
       path: "/contact",
       element: (
-        <AppLayout>
+        <AppLayout showHero={true}>
           <ContactUs />
         </AppLayout>
       ),
@@ -36,7 +36,7 @@ export const ApplicationRouter = () => {
     {
       path: "/post/:slug",
       element: (
-        <AppLayout>
+        <AppLayout showHero={true}>
           <Post />
         </AppLayout>
       ),
@@ -45,7 +45,7 @@ export const ApplicationRouter = () => {
     {
       path: "/news",
       element: (
-        <AppLayout>
+        <AppLayout showHero={true}>
           <News />
         </AppLayout>
       ),
