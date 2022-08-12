@@ -21,7 +21,7 @@ const useStyles = createStyles((theme) => ({
     borderRadius: theme.radius.md,
     padding: theme.spacing.xl * 2.5,
 
-    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+    [`@media (maxWidth: ${theme.breakpoints.sm}px)`]: {
       padding: theme.spacing.xl * 1.5,
     },
   },
@@ -29,7 +29,7 @@ const useStyles = createStyles((theme) => ({
   description: {
     maxWidth: 300,
 
-    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+    [`@media (maxWidth: ${theme.breakpoints.sm}px)`]: {
       maxWidth: "100%",
     },
   },

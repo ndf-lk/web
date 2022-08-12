@@ -3,7 +3,7 @@ import { usePost } from "../hooks/usePost";
 import { Container, Center, Title } from "@mantine/core";
 import { TypographyStylesProvider } from "@mantine/core";
 
-const BREAKPOINT = "@media (max-width: 800px)";
+const BREAKPOINT = "@media (maxWidth: 800px)";
 
 export const Post = () => {
   const { slug } = useParams();

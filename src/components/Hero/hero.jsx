@@ -4,7 +4,7 @@ import "./index.css";
 
 export function AppHero({ customImage }) {
   const matches = useMediaQuery("(min-width: 900px)", false);
-  let height = matches ? 450 : 200;
+  let height = matches ? 300 : 200;
   return (
     <>
       <div

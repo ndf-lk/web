@@ -62,7 +62,7 @@ export const News = () => {
   const pdata = getData(language);
   const clipboard = useClipboard({ timeout: 500 });
 
-  const BREAKPOINT = "@media (max-width: 800px)";
+  const BREAKPOINT = "@media (maxWidth: 800px)";
 
   useEffect(() => {
     posts.refetch(language);
@@ -103,7 +103,7 @@ export const News = () => {
                       {posts.data.map((post) => {
                         return (
                           <>
-                            <Card withBorder radius="md" mb={30}>
+                            <Card withBorder radius="md" mb={30} key={post?.ID}>
                               <Card.Section>
                                 <Image
                                   src={post?.header}

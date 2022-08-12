@@ -42,11 +42,11 @@ export const NewsBar = ({ isColor = false }) => {
                   return (
                     <>
                       <Text
+                        key={post.slug}
                         component={Link}
                         to={`/post/${post?.slug}`}
                         ml={50}
                         mr={50}
-                        key={post?.ID}
                       >
                         {post?.title}
                       </Text>
