@@ -23,7 +23,7 @@ export const HomePage = () => {
     return (
       <Group noWrap>
         <div>
-          <Text>{details.point}</Text>
+          <Text weight={700}>{details.point}</Text>
         </div>
       </Group>
     );
