@@ -18,6 +18,12 @@
   "socialfeed":"Connect with our Facebook page.",
   "submitform":"We received your message.",
   "submitformdesc":"We will respond back to you soon.",
+  "sendmsg":"Send Message",
+  "msgform":[
+    "Email",
+    "Name",
+    "Your message"
+  ],
   "PointDetails": [
     {
       "key": 1,

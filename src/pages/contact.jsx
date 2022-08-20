@@ -113,20 +113,20 @@ export function ContactUs() {
                 {pdata?.sendamessage}
               </Title>
               <TextInput
-                label="Email"
+                label={pdata?.msgform[0]}
                 placeholder="your@email.com"
                 required
                 classNames={{ input: classes.input, label: classes.inputLabel }}
               />
               <TextInput
-                label="Name"
+                label={pdata?.msgform[1]}
                 placeholder="John Doe"
                 mt="md"
                 classNames={{ input: classes.input, label: classes.inputLabel }}
               />
               <Textarea
                 required
-                label="Your message"
+                label={pdata?.msgform[2]}
                 placeholder="I want to talk about..."
                 minRows={4}
                 mt="md"
@@ -140,7 +140,7 @@ export function ContactUs() {
                   size="md"
                   onClick={() => setFromSubmitted(true)}
                 >
-                  {pdata?.sendamessage}
+                  {pdata?.sendmsg}
                 </Button>
               </Group>
             </>
