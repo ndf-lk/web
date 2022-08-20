@@ -74,7 +74,7 @@ export function ContactUs() {
   const pdata = getData(language);
   const [formSubmitted, setFromSubmitted] = useLocalStorage({
     key: "from-submitted",
-    defaultValue: true,
+    defaultValue: false,
   });
 
   const submitFrom = () => {
