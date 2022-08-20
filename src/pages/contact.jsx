@@ -13,6 +13,7 @@ import { ContactIconsList } from "../components/ContactIcons";
 import { LanguageContext } from "../context/userLangctx";
 import { useContext } from "react";
 import { getData } from "../data/getData";
+import { useLocalStorage } from "@mantine/hooks";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -71,6 +72,14 @@ export function ContactUs() {
   const { language, setLanguage } = useContext(LanguageContext);
   const { classes } = useStyles();
   const pdata = getData(language);
+  const [formSubmitted, setFromSubmitted] = useLocalStorage({
+    key: "from-submitted",
+    defaultValue: true,
+  });
+
+  const submitFrom = () => {
+    setFromSubmitted(true);
+  };
 
   return (
     <>
@@ -84,35 +93,58 @@ export function ContactUs() {
           <ContactIconsList />
         </div>
         <div className={classes.form}>
-          <Title className={classes.title} mb={20}>
-            {pdata?.sendamessage}
-          </Title>
-          <TextInput
-            label="Email"
-            placeholder="your@email.com"
-            required
-            classNames={{ input: classes.input, label: classes.inputLabel }}
-          />
-          <TextInput
-            label="Name"
-            placeholder="John Doe"
-            mt="md"
-            classNames={{ input: classes.input, label: classes.inputLabel }}
-          />
-          <Textarea
-            required
-            label="Your message"
-            placeholder="I want to talk about..."
-            minRows={4}
-            mt="md"
-            classNames={{ input: classes.input, label: classes.inputLabel }}
-          />
+          {formSubmitted ? (
+            <>
+              <Title className={classes.title} mb={20}>
+                {pdata?.submitform}
+              </Title>
 
-          <Group position="right" mt="md">
-            <Button variant="default" radius="md" size="md">
-              {pdata?.sendamessage}
-            </Button>
-          </Group>
+              <Text className={classes.description} mt="sm" mb={30}>
+                {pdata?.submitformdesc}
+              </Text>
+
+              <Button variant="default" onClick={() => setFromSubmitted(false)}>
+                submit abother respose
+              </Button>
+            </>
+          ) : (
+            <>
+              <Title className={classes.title} mb={20}>
+                {pdata?.sendamessage}
+              </Title>
+              <TextInput
+                label="Email"
+                placeholder="your@email.com"
+                required
+                classNames={{ input: classes.input, label: classes.inputLabel }}
+              />
+              <TextInput
+                label="Name"
+                placeholder="John Doe"
+                mt="md"
+                classNames={{ input: classes.input, label: classes.inputLabel }}
+              />
+              <Textarea
+                required
+                label="Your message"
+                placeholder="I want to talk about..."
+                minRows={4}
+                mt="md"
+                classNames={{ input: classes.input, label: classes.inputLabel }}
+              />
+
+              <Group position="right" mt="md">
+                <Button
+                  variant="default"
+                  radius="md"
+                  size="md"
+                  onClick={() => setFromSubmitted(true)}
+                >
+                  {pdata?.sendamessage}
+                </Button>
+              </Group>
+            </>
+          )}
         </div>
       </Container>
     </>
