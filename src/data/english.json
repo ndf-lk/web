@@ -19,6 +19,9 @@
   "submitform":"We received your message.",
   "submitformdesc":"We will respond back to you soon.",
   "sendmsg":"Send Message",
+  "memberformsubmission":"We received your submission.",
+  "memberformdesc":"We will send you a email with the QR code to access your profile.",
+  "submitanotherresponse":"Submit another response",
   "msgform":[
     "Email",
     "Name",
