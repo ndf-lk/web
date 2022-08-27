@@ -10,6 +10,8 @@ import {
   Title,
   TextInput,
 } from "@mantine/core";
+import { Alert } from "@mantine/core";
+import { IconAlertCircle } from "@tabler/icons";
 import { useForm } from "@mantine/form";
 import { useContext } from "react";
 import { showNotification } from "@mantine/notifications";
@@ -28,6 +30,9 @@ import { getData } from "../data/getData";
 export const Join = () => {
   const BREAKPOINT = "@media (maxWidth: 800px)";
   const { language } = useContext(LanguageContext);
+  const [submitError, setSubmitError] = useState(null);
+  const [submitErrorTitle, setSubmitErrorTitle] = useState(null);
+
   const data = getData(language);
   const formdata = getFormData(language);
   const [memberFormSubmitted, setMemberFormSubmission] = useLocalStorage({
@@ -49,10 +54,11 @@ export const Join = () => {
     initialValues: {
       name: "",
       nic: "",
+      birthday: "",
       address: "",
       district: "",
-      DivisionalSecretariat: "",
-      VillageOfficerDomain: "",
+      divisional_secretariat: "",
+      village_officer_domain: "",
       phone: "",
       email: "",
     },
@@ -63,7 +69,7 @@ export const Join = () => {
   });
 
   const userJoinMutation = useMutation((data) => {
-    return axios.post(`${Appconfig.apiUrl}/member/join`, data);
+    return axios.post(`${Appconfig.apiUrl}members/create`, data);
   });
 
   const submitForm = async (values) => {
@@ -82,10 +88,20 @@ export const Join = () => {
       setMemberFormSubmission(true);
     } catch (err) {
       showNotification({
-        title: err.response.data?.Message,
-        message: err?.response.data?.Error,
+        title: err.response.data?.error?.type,
+        message: err?.response.data?.error?.message,
         color: "red",
       });
+
+      if (err.response?.data?.error?.type) {
+        setSubmitError(err.response?.data?.error?.message);
+        setSubmitErrorTitle(err.response?.data?.error?.type);
+      } else {
+        setSubmitErrorTitle("Error");
+        setSubmitError(err?.message);
+      }
+
+      console.log(submitErrorTitle);
       console.log(JSON.stringify(err.response.data));
     }
 
@@ -188,6 +204,15 @@ export const Join = () => {
                     {...form.getInputProps("nic")}
                   />
 
+                  <TextInput
+                    mt={20}
+                    size="md"
+                    required
+                    type="date"
+                    label={formdata.birthday}
+                    {...form.getInputProps("birthday")}
+                  />
+
                   <SimpleGrid
                     cols={2}
                     breakpoints={[
@@ -249,7 +274,7 @@ export const Join = () => {
                       label={formdata.divisionalsecretariat}
                       size="md"
                       placeholder={"Piliyandala"}
-                      {...form.getInputProps("DivisionalSecretariat")}
+                      {...form.getInputProps("divisional_secretariat")}
                     />
 
                     <TextInput
@@ -258,9 +283,20 @@ export const Join = () => {
                       label={formdata.villageofficerdomain}
                       size="md"
                       placeholder={"Western"}
-                      {...form.getInputProps("VillageOfficerDomain")}
+                      {...form.getInputProps("village_officer_domain")}
                     />
                   </SimpleGrid>
+
+                  {submitError ? (
+                    <Alert
+                      icon={<IconAlertCircle size={16} />}
+                      title={submitErrorTitle}
+                      color="red"
+                      mt={20}
+                    >
+                      {submitError}
+                    </Alert>
+                  ) : null}
 
                   <Group position="right" mt={30}>
                     <Button
