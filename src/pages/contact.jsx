@@ -99,8 +99,12 @@ export function ContactUs() {
   });
 
   const submitFrom = async (values) => {
-    const { data } = await sendMessageMutation.mutateAsync(values);
-    console.log(data);
+    try {
+      const { data } = await sendMessageMutation.mutateAsync(values);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
     setFromSubmitted(true);
   };
 
