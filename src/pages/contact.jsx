@@ -9,11 +9,15 @@ import {
   Button,
   Group,
 } from "@mantine/core";
+import { useForm } from "@mantine/form";
 import { ContactIconsList } from "../components/ContactIcons";
 import { LanguageContext } from "../context/userLangctx";
 import { useContext } from "react";
 import { getData } from "../data/getData";
 import { useLocalStorage } from "@mantine/hooks";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import { Appconfig } from "../config";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -77,7 +81,26 @@ export function ContactUs() {
     defaultValue: false,
   });
 
-  const submitFrom = () => {
+  const form = useForm({
+    initialValues: {
+      subject: "",
+      name: "",
+      message: "",
+      email: "",
+    },
+
+    validate: {
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
+    },
+  });
+
+  const sendMessageMutation = useMutation((data) => {
+    return axios.post(`${Appconfig.apiUrl}messages/send`, data);
+  });
+
+  const submitFrom = async (values) => {
+    const { data } = await sendMessageMutation.mutateAsync(values);
+    console.log(data);
     setFromSubmitted(true);
   };
 
@@ -104,45 +127,81 @@ export function ContactUs() {
               </Text>
 
               <Button variant="default" onClick={() => setFromSubmitted(false)}>
-                submit abother respose
+                submit another respose
               </Button>
             </>
           ) : (
             <>
-              <Title className={classes.title} mb={20}>
-                {pdata?.sendamessage}
-              </Title>
-              <TextInput
-                label={pdata?.msgform[0]}
-                placeholder="your@email.com"
-                required
-                classNames={{ input: classes.input, label: classes.inputLabel }}
-              />
-              <TextInput
-                label={pdata?.msgform[1]}
-                placeholder="John Doe"
-                mt="md"
-                classNames={{ input: classes.input, label: classes.inputLabel }}
-              />
-              <Textarea
-                required
-                label={pdata?.msgform[2]}
-                placeholder="I want to talk about..."
-                minRows={4}
-                mt="md"
-                classNames={{ input: classes.input, label: classes.inputLabel }}
-              />
+              <form onSubmit={form.onSubmit((values) => submitFrom(values))}>
+                <Title className={classes.title} mb={20}>
+                  {pdata?.sendamessage}
+                </Title>
+                <TextInput
+                  label={pdata?.msgform[0]}
+                  placeholder="your@email.com"
+                  {...form.getInputProps("email")}
+                  required
+                  classNames={{
+                    input: classes.input,
+                    label: classes.inputLabel,
+                  }}
+                />
+                <TextInput
+                  label={pdata?.msgform[1]}
+                  placeholder="John Doe"
+                  mt="md"
+                  {...form.getInputProps("name")}
+                  classNames={{
+                    input: classes.input,
+                    label: classes.inputLabel,
+                  }}
+                />
 
-              <Group position="right" mt="md">
-                <Button
-                  variant="default"
-                  radius="md"
-                  size="md"
-                  onClick={() => setFromSubmitted(true)}
-                >
-                  {pdata?.sendmsg}
-                </Button>
-              </Group>
+                <TextInput
+                  label={pdata?.msgform[3]}
+                  placeholder="Subject"
+                  {...form.getInputProps("subject")}
+                  mt="md"
+                  classNames={{
+                    input: classes.input,
+                    label: classes.inputLabel,
+                  }}
+                />
+
+                <Textarea
+                  required
+                  label={pdata?.msgform[2]}
+                  placeholder="I want to talk about..."
+                  {...form.getInputProps("message")}
+                  minRows={4}
+                  mt="md"
+                  classNames={{
+                    input: classes.input,
+                    label: classes.inputLabel,
+                  }}
+                />
+
+                <Group position="right" mt={30}>
+                  <Button
+                    withBorder
+                    type="submit"
+                    size="md"
+                    fullWidth
+                    variant="gradient"
+                    color="dark"
+                    gradient={{
+                      to: "yellow",
+                      from: Appconfig.lightcolor,
+                    }}
+                    style={{
+                      color: "black",
+                      border: "1px solid black",
+                    }}
+                  >
+                    {pdata?.sendmsg}
+                  </Button>
+                </Group>
+              </form>
             </>
           )}
         </div>
