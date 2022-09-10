@@ -4,7 +4,7 @@
   "description": "Yes, a new political party. A topic that everyone is talking about these days. This is a new political movement in which we can all stand. We are committed to introduce a new political approach to the country that goes beyond tradition. This is one aspect of its deviation.",
   "MainButtonText": "About Us",
   "SecondaryTitle": "National Democratic Front",
-  "SecondaryParagraph": "The primary objective of the National Democratic Front, which extends beyond traditional political parties, is to create a prosperous Sri Lanka. For that, we are committed to the public service by denying all privileges on behalf of the people. We call back to the motherland the 'gentlemanly politics' that has faded from this country after the national leaders of the past.",
+  "SecondaryParagraph": "The primary objective of the National Democratic Front, which extends beyond traditional political parties, is to create a prosperous Sri Lanka. For that, we are committed to the public service by denying all privileges on behalf of the people. We call back to the motherland the 'gentlemanly politics (Mahatma Politics)' that has faded from this country after the national leaders of the past.",
   "pointTitle": "For that we are obliged to make the following sacrifices.",
   "commitmentPara": "By making those sacrifices, we are committed to overcome the current economic crisis and make our motherland an enlightened state in the world through a rational, creative, practical and systematic program by healing the minds of the people.",
   "welcometitle": "Welcome to the Party",
@@ -26,53 +26,53 @@
   "PointDetails": [
     {
       "key": 1,
-      "point": "Non-receipt of salary due to MPs.",
-      "desecription": "The government pays a salary related to the position of the member of parliament to each member of the public, and arranges to provide a pension.  But no member of our party is bound to perform his service to the people without getting salary.  Its ultimate goal is to create a public service that is not maintained by public money."
+      "point": "Reject the monthly salary for the Members of Parliament.",
+      "description":"Public pays a salary to each member of parliament and arranges to provide a pension. But our party is committed to serve the public, without getting a salary or a pension. It is our ultimate goal to create a public service that is not maintained by Public money."
     },
     {
       "key": 2,
-      "point": "Denial of all allowances including fuel allowance, telephone allowance, office allowance, stamp allowance.",
-      "desecription": " It is no secret that the members of Parliament and Provincial Councils as well as local government representatives are entitled to various allowances, and all those allowances are given by the tax payers of this country.  Should the people who pay taxes in this country continue to maintain public representatives?  No.  Politics should be an honorable service.  Therefore, our party rejects all allowances, including fuel allowance, telephone allowance, office allowance and stamp allowance, which are entitled to MPs."
+      "point":"Reject all allowances including fuel allowance, telephone allowance, office allowance, stamp allowance that is being paid additional to the salary of the Members of Parliament. ",
+      "description":"It is no secret that the members of Parliament, Provincial Councils and Local government are entitled to various allowances, and all those allowances are given by the tax payers of country. Should the people who pay taxes in this country continue to maintain public representatives? No. Politics should be an honorable service. Therefore, our party rejects all allowances, including fuel allowance, telephone allowance, office allowance and stamp allowance, which are entitled to MPs."
     },
     {
       "key": 3,
-      "point": "Non-enjoyment of government quarters and bungalows.",
-      "desecription": " All government offices and bungalows for ministers, state ministers and deputy ministers are rejected by the people's representatives elected by our party.  A very small amount is recovered from the salaries of the ministers for those bungalows.  Water bills, electricity bills and all maintenance of the said quarters or bungalow are done by the internal control department of the ministry of the concerned minister.  Since all the money spent on it is public money, our party will reject government quarters and bungalows that are not maintained by public money."
+      "point":"Refuse using government quarters and bungalows as official residences. ",
+      "description":"All cabinet ministers, state ministers and deputy ministers who will be appointed from our party will rightly reject the facility of allocating government owned bunglows as their official residences. A very small amount is recovered from the salaries of the ministers for those bungalows. Water bills, electricity bills and all maintenance of the said official residenses are done by the internal administration division of the relevent ministry. Since all the money spent on it are public funds, our party will reject obtaining thr facility of government owned official residences."
     },
     {
       "key": 4,
-      "point": " Non-obligation of duty-free vehicle permit for Members of Parliament.",
-      "desecription": "Duty-free vehicle license is another perk for MPs.  Our party is not ready to serve the people of the country and enjoy the privileges that the people do not get.  Therefore, our party rejects the duty-free vehicle permit for MPs."
+      "point":" Reject the duty free vehicle permit for Members of Parliament.", 
+      "description":"Duty-free vehicle permit is another perk for members of the parliament. Our party is not ready to serve the people and enjoy the privileges that the people do not get. Therefore, our party rejects the duty-free vehicle permit for members of the parliament."
     },
     {
       "key": 5,
-      "point": "Not seeking the assistance of elite security personnel for security and if security is necessary, paying the relevant amount to the government.",
-      "desecription": "We don't need elite security personnel to go before the public.  There is no need for elite protection if people's aspirations are properly served without corruption.  But only if there is a threat to the life of the elite, the elite will be protected, and the public representatives appointed by our party are bound to pay the relevant amount to the government."
+      "point":"Refuse the assistance of elite security personnel for security and, if necessary, obtain security and pay the relevant expenses to the Government.", 
+      "description":"We don't need elite security personnel to go before the public. There is no need for elite protection if people's aspirations are properly served without corruption. But if there is a threat to the life, the elite will be protected, and the public representatives appointed by our party are bound to pay the relevant amount to the government."
     },
     {
       "key": 6,
-      "point": "Not enjoying even a cup of coffee from the canteen of Parliament with public money.",
-      "desecription": " In an era where there are many stories related to the canteen in Parliament, at a time when the people of the country are going hungry without food, we cannot enjoy Raja Bojun in Parliament Canteen for a very small amount of money.  Therefore, our party is bound not to enjoy even a cup of katha from the canteen of the Parliament with public money."
+      "point":"Refuse enjoying even a cup of infusion from the cafeteria of Parliament using public money. ", 
+      "description":"In an era where there are many stories related to the cafeteria in Parliament, at a time when the people of the country are going hungry without food, we cannot enjoy delicious meals in Parliament Cafeteria for a very small amount of money. Therefore, our party is bound not to enjoy even a cup of tea from the canteen of the Parliament with public funds."
     },
     {
       "key": 7,
-      "point": "Not using government vehicles.",
-      "desecription": " If the people's representatives of our party hold ministerial positions, deputy ministerial positions, state ministerial positions or any other government positions, they are bound not to use the government vehicles owned for that purpose."
+      "point":"Refuse using government vehicles. ",
+      "description":"If the people's representatives of our party hold cabinet ministerial positions, deputy ministerial positions, state ministerial positions or any other government positions, they are bound not to use the government vehicles owned for any purpose."
     },
     {
       "key": 8,
-      "point": "Not giving nominations to corrupt politicians to contest elections from our party and not giving nominations to monks and clergy.",
-      "desecription": "We do not give nominations from our party to any person who has been proven guilty before the courts or anyone who has been accused of corruption fraud, and we do not give nominations to honorable Lords or any person from the clergy to run for election through our party."
+      "point":"Reject nominations to any corrupt politicians to contest elections from our party and also reject nominations to monks and clergy.", 
+      "description":"Our party will not give nominations to any person who has been proven guilty before the courts or anyone who has been accused of corruption fraud. And we also do not give nominations to any person from the clergy to run for an election through our party."
     },
     {
       "key": 9,
-      "point": "Publishing the assets and liabilities statements of all our party's MPs.",
-      "desecription": " We will publish the statements of assets and liabilities of all MPs of our party."
+      "point":"Disclosure of assets and liabilities of all Members of Parliament representing our party.", 
+      "desecription":"We will publish the Statements of Assets and Liabilities of all public representatives of our party."
     },
     {
       "key": 10,
-      "point": " Rejection of foreign travel at public expense.",
-      "desecription": " We are committed to cover all foreign travel expenses at the diplomatic level without using public funds and at our own expense."
+      "point":"Refuse to travel abroad at the expense of the public. ",
+      "desecription":"We are committed to cover all diplomatic travel expenses from our own funds without using public funds."
     }
   ],
   "end": "We are already strong with a wall of people, who are brave and conquered the world through successful entrepreneurship and management.",
